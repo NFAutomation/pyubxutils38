@@ -28,8 +28,9 @@ from math import ceil
 from queue import Queue
 from threading import Event, Lock, Thread
 from time import sleep
+from serial import Serial
 
-from pyubx2 import (
+from pyubxutils.ubxtypes_core import (
     NMEA_PROTOCOL,
     SETPOLL,
     UBX_PROTOCOL,
@@ -37,8 +38,6 @@ from pyubx2 import (
     UBXParseError,
     UBXReader,
 )
-from serial import Serial
-
 from pyubxutils._version import __version__ as VERSION
 from pyubxutils.exceptions import ParameterError
 from pyubxutils.globals import EPILOG, VERBOSITY_HIGH

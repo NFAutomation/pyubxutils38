@@ -9,9 +9,8 @@ authors = [{ name = "Steve Smith", email = "semuadmin@semuconsulting.com" }]
 maintainers = [{ name = "Steve Smith", email = "semuadmin@semuconsulting.com" }]
 description = "UBX Protocol Command Line Utilities"
 license = "BSD-3-Clause"
-license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 classifiers = [
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
@@ -33,15 +32,10 @@ classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
 ]
 
-dependencies = ["pyserial>=3.5", "pyubx2>=1.2.58"]
+dependencies = ["pyserial>=3.5"]
 
 [project.scripts]
-ubxsetrate = "pyubxutils.ubxsetrate:main"
-ubxsave = "pyubxutils.ubxsave:main"
 ubxload = "pyubxutils.ubxload:main"
-ubxsimulator = "pyubxutils.ubxsimulator_cli:main"
-ubxcompare = "pyubxutils.ubxcompare:main"
-ubxbase = "pyubxutils.ubxbase:main"
 
 [project.urls]
 homepage = "https://github.com/semuconsulting/pyubx2"
@@ -75,43 +69,9 @@ deploy = [{ include-group = "build" }, { include-group = "test" }]
 [tool.setuptools.dynamic]
 version = { attr = "pyubxutils._version.__version__" }
 
-[tool.black]
-target-version = ['py310']
-
-[tool.isort]
-py_version = 310
-profile = "black"
-
 [tool.bandit]
 exclude_dirs = ["docs", "examples", "references", "tests", ".venv"]
 skips = []
-
-[tool.pylint]
-jobs = 0
-reports = "y"
-recursive = "y"
-py-version = "3.10"
-fail-under = "9.7"
-fail-on = "E,F"
-clear-cache-post-run = "y"
-good-names = "i,j,x,y"
-disable = """
-    raw-checker-failed,
-    bad-inline-option,
-    locally-disabled,
-    file-ignored,
-    suppressed-message,
-    useless-suppression,
-    deprecated-pragma,
-    use-symbolic-message-instead,
-    logging-fstring-interpolation,
-"""
-
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "--cov --cov-report html"
-pythonpath = ["src"]
-testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["src"]
@@ -120,7 +80,6 @@ source = ["src"]
 source = ["src"]
 
 [tool.coverage.report]
-
 
 [tool.coverage.html]
 directory = "htmlcov"
