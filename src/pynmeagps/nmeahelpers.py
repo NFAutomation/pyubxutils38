@@ -14,7 +14,7 @@ Created on 04 Mar 2021
 import re
 from datetime import datetime
 from math import acos, asin, atan2, cos, pi, sin, sqrt
-from typing import Literal, Union
+from typing import Literal, Tuple, Union
 
 import pynmeagps.exceptions as nme
 from pynmeagps.nmeatypes_core import (
@@ -539,7 +539,7 @@ def knots2spd(knots: float, unit: str = "MS") -> float:
         ) from err
 
 
-def latlon2dmm(lat: float, lon: float) -> tuple[str, str]:
+def latlon2dmm(lat: float, lon: float) -> Tuple[str, str]:
     """
     Converts decimal lat/lon tuple to degrees decimal minutes.
 
@@ -554,7 +554,7 @@ def latlon2dmm(lat: float, lon: float) -> tuple[str, str]:
     return lat, lon
 
 
-def latlon2dms(lat: float, lon: float) -> tuple[str, str]:
+def latlon2dms(lat: float, lon: float) -> Tuple[str, str]:
     """
     Converts decimal lat/lon tuple to degrees minutes seconds.
 

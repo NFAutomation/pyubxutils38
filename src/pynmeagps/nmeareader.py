@@ -28,7 +28,7 @@ Created on 4 Mar 2021
 from logging import getLogger
 from socket import socket
 from types import FunctionType, NoneType
-from typing import Literal
+from typing import Literal, Tuple
 
 import pynmeagps.exceptions as nme
 from pynmeagps.nmeahelpers import calc_checksum, get_parts
@@ -102,7 +102,7 @@ class NMEAReader:
 
         return self
 
-    def __next__(self) -> tuple[bytes | NoneType, NMEAMessage | NoneType]:
+    def __next__(self) -> Tuple[bytes | NoneType, NMEAMessage | NoneType]:
         """
         Return next item in iteration.
 
@@ -117,7 +117,7 @@ class NMEAReader:
             raise StopIteration
         return (raw_data, parsed_data)
 
-    def read(self) -> tuple[bytes | NoneType, NMEAMessage | NoneType]:
+    def read(self) -> Tuple[bytes | NoneType, NMEAMessage | NoneType]:
         """
         Read the binary data from the stream buffer.
 

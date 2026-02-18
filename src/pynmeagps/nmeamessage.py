@@ -14,7 +14,7 @@ import struct
 from datetime import datetime, timezone
 from logging import getLogger
 from types import NoneType
-from typing import Literal
+from typing import Literal, Tuple
 
 import pynmeagps.exceptions as nme
 import pynmeagps.nmeatypes_core as nmt
@@ -174,7 +174,7 @@ class NMEAMessage:
         return (pindex, gindex)
 
     def _set_attribute_group(
-        self, att: tuple[int, dict], pindex: int, gindex: list, **kwargs
+        self, att: Tuple[int, dict], pindex: int, gindex: list, **kwargs
     ) -> tuple:
         """
         Process (nested) group of attributes.
