@@ -36,12 +36,13 @@ from pyubxutils.ubxtypes_core import (
     UBX_PROTOCOL,
     UBXMessageError,
     UBXParseError,
-    UBXReader,
 )
 from pyubxutils._version import __version__ as VERSION
 from pyubxutils.exceptions import ParameterError
 from pyubxutils.globals import EPILOG, VERBOSITY_HIGH
 from pyubxutils.helpers import progbar, set_common_args
+
+from pyubx2 import UBXReader
 
 ACK = "ACK-ACK"
 NAK = "ACK-NAK"
