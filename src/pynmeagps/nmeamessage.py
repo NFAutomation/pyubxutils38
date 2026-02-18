@@ -13,8 +13,7 @@ Created on 04 Mar 2021
 import struct
 from datetime import datetime, timezone
 from logging import getLogger
-from types import NoneType
-from typing import Literal, Tuple
+from typing import Dict, Literal, Optional, Tuple
 
 import pynmeagps.exceptions as nme
 import pynmeagps.nmeatypes_core as nmt
@@ -46,8 +45,8 @@ class NMEAMessage:
         msgmode: Literal[0, 1, 2],
         hpnmeamode: bool = False,
         validate: int = nmt.VALCKSUM,
-        userdefined: dict | NoneType = None,
-        checksum: str | NoneType = None,
+        userdefined: Optional[Dict] = None,
+        checksum: Optional[str] = None,
         **kwargs,
     ):
         """Constructor.
@@ -292,7 +291,7 @@ class NMEAMessage:
         for i, fld in enumerate(payload):
             setattr(self, f"field_{i+1:02d}", fld)
 
-    def _get_dict(self, **kwargs) -> dict | NoneType:
+    def _get_dict(self, **kwargs) -> Optional[Dict]:
         """
         Get payload dictionary.
 

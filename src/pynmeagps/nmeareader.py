@@ -27,8 +27,7 @@ Created on 4 Mar 2021
 
 from logging import getLogger
 from socket import socket
-from types import FunctionType, NoneType
-from typing import Literal, Tuple
+from typing import Dict, Literal, Optional, Tuple, Callable
 
 import pynmeagps.exceptions as nme
 from pynmeagps.nmeahelpers import calc_checksum, get_parts
@@ -59,8 +58,8 @@ class NMEAReader:
         nmeaonly: bool = False,
         quitonerror: Literal[0, 1, 2] = ERR_LOG,
         bufsize: int = DEFAULT_BUFSIZE,
-        errorhandler: FunctionType | NoneType = None,
-        userdefined: dict | NoneType = None,
+        errorhandler: Optional[Callable] = None,
+        userdefined: Optional[Dict] = None,
         encoding: int = ENCODE_NONE,
     ):
         """Constructor.
@@ -102,7 +101,7 @@ class NMEAReader:
 
         return self
 
-    def __next__(self) -> Tuple[bytes | NoneType, NMEAMessage | NoneType]:
+    def __next__(self) -> Tuple[Optional[bytes], Optional[NMEAMessage]]:
         """
         Return next item in iteration.
 
@@ -117,7 +116,7 @@ class NMEAReader:
             raise StopIteration
         return (raw_data, parsed_data)
 
-    def read(self) -> Tuple[bytes | NoneType, NMEAMessage | NoneType]:
+    def read(self) -> Tuple[Optional[bytes], Optional[NMEAMessage]]:
         """
         Read the binary data from the stream buffer.
 
@@ -238,8 +237,8 @@ class NMEAReader:
         message: bytes,
         msgmode: Literal[0, 1, 2] = GET,
         validate: int = VALCKSUM,
-        userdefined: dict | NoneType = None,
-    ) -> NMEAMessage | NoneType:
+        userdefined:Optional[Dict] = None,
+    ) -> Optional[NMEAMessage]:
         """
         Parse NMEA byte stream to NMEAMessage object.
 
