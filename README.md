@@ -1,5 +1,22 @@
-pyubxutils
+pyubxutils38
 =======
+
+This is a fun fork of parts of `pyubxutils` which is backported to work on Python 3.8. You could argue that the year is _insert year number here_ and nobody should be using Python 3.8. 
+
+We've only included the parts that we needed, e.g. `ubxsave` and `ubxload`.
+
+For sanity and ease of deployment, we have taken code from across multiple repos and bundled them in here. Here's a list of which repos and which commits we've used (at the time of writing, let's hope that anybody updating these will also update the table below...)
+
+| Repo    | commit |
+| -------- | ------- |
+| https://github.com/semuconsulting/pyubxutils  | `b758ec0` |
+| https://github.com/semuconsulting/pynmeagps   | `73cd972` |
+| https://github.com/semuconsulting/pyubx2      | `1603417` |
+| https://github.com/semuconsulting/pyrtcm      | `776046b` |
+
+
+
+# Original readme:
 
 [Current Status](#currentstatus) |
 [Installation](#installation) |

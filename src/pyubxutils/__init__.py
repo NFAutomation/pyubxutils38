@@ -10,5 +10,6 @@ from pyubxutils._version import __version__
 from pyubxutils.exceptions import GNSSStreamError, ParameterError
 from pyubxutils.globals import *
 from pyubxutils.ubxload import UBXLoader
+from pyubxutils.ubxsave import UBXSaver
 
 version = __version__  # pylint: disable=invalid-name
