@@ -14,7 +14,7 @@ Created on 04 Mar 2021
 import re
 from datetime import datetime
 from math import acos, asin, atan2, cos, pi, sin, sqrt
-from typing import Literal
+from typing import Literal, Union
 
 import pynmeagps.exceptions as nme
 from pynmeagps.nmeatypes_core import (
@@ -261,7 +261,7 @@ def deg2dms(degrees: float, att: Literal["LA", "LN"]) -> str:
         return ""
 
 
-def dmm2ddd(pos: str) -> float | str:
+def dmm2ddd(pos: str) -> Union[float, str]:
     """
     Convert NMEA lat/lon string to (unsigned) decimal degrees.
 
