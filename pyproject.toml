@@ -36,6 +36,7 @@ dependencies = ["pyserial>=3.5"]
 [project.scripts]
 ubxload = "pyubxutils.ubxload:main"
 ubxsave = "pyubxutils.ubxsave:main"
+ubxcompare = "pyubxutils.ubxcompare:main"
 
 [project.urls]
 homepage = "https://github.com/semuconsulting/pyubx2"
